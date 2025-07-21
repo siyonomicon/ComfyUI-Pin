@@ -8,7 +8,6 @@ const PinGrid = ({ node }) => {
     const [imageUrls, setImageUrls] = React.useState([]);
     const [selectedImage, setSelectedImage] = React.useState(null);
     const ref = React.useRef(null);
-    console.log(node)
 
     React.useEffect(() => {
         (async () => {
@@ -21,13 +20,6 @@ const PinGrid = ({ node }) => {
     const handleImageClick = async (url) => {
         setSelectedImage(url);
         node.widgets[0].value = url.replace(/\/236x\//, "/736x/");
-        await fetch("/pin_grid_select_image", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ imageUrl: url.replace(/\/236x\//, "/736x/") }),
-        });
     };
 
     return React.createElement(

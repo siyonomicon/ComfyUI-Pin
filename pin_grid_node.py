@@ -9,16 +9,6 @@ from aiohttp import web
 from dotenv import load_dotenv
 
 load_dotenv()
-print(f"My module name is: {__name__}")
-
-
-# @server.PromptServer.instance.routes.post("/pin_grid_select_image")
-# async def select_pin_grid_image(request):
-#     data = await request.json()
-#     Logger.metaclass.selected_image_url = data.get("imageUrl")
-#     print(f"Selected image URL: {Logger.metaclass.selected_image_url}")
-#     return web.json_response({"status": "success", "imageUrl": Logger.metaclass.selected_image_url})
-
 class PinGridNode:
     selected_image_url = None
 
